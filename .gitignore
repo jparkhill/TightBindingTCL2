@@ -1,0 +1,9 @@
+*.o
+*.a
+*.so 
+build/
+./build/* 
+*.svn*
+*/.svn
+.svn/
+configure.log

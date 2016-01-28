@@ -1,0 +1,8 @@
+all: TCLprop.o 
+	icpc -openmp -static-intel -g -DOMP -DARMA_USE_BLAS -DARMA_USE_LAPACK TCLprop.o -o TCL -framework Accelerate -llapack -lblas  
+#	icpc -openmp -g -DOMP -DARMA_USE_BLAS -DARMA_USE_LAPACK TCLprop.o -o TCL -framework Accelerate -llapack -lblas  
+TCLprop.o: TCLprop.cpp TCL.h 
+	icpc -openmp -static-intel -g -std=c++11 -DARMA_USE_BLAS -DARMA_USE_LAPACK -I/Users/trietnguyen/armadillo-4.320.0/include -I . -c TCLprop.cpp 
+clean: 
+	rm -rf *.o 
+	rm TCL 

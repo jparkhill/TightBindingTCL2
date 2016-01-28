@@ -1,0 +1,8 @@
+all: TCLprop.o 
+	g++-4.9 -fopenmp -std=c++11 -O3  -DOMP -DARMA_USE_BLAS -DARMA_USE_LAPACK TCLprop.o -o TCL -L/usr/local/Cellar/armadillo/4.100.2/lib -larmadillo -framework Accelerate -llapack -lblas  
+#       g++ -fopenmp -O3 -DOMP -DARMA_USE_BLAS -DARMA_USE_LAPACK TCLprop.o -o TCL -framework Accelerate -llapack -lblas  
+TCLprop.o: TCLprop.cpp TCL.h 
+	g++-4.9 -std=c++11 -fopenmp -O3 -DARMA_USE_BLAS -DARMA_USE_LAPACK -I/usr/local/Cellar/armadillo/4.100.2/include -I . -c TCLprop.cpp 
+clean: 
+	rm -rf *.o 
+	rm TCL 

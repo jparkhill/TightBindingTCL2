@@ -1,0 +1,2 @@
+popTCL1.dat & run1: stepsize 0.01 au, morphII, bagel coupling, 100K, craps out around 1.5 fs.
+R popTCL2.dat & run2: stepsize 0.005 au, morphII, bagel coupling, 100K, craps out around ? fs.
